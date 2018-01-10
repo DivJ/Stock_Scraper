@@ -1,0 +1,22 @@
+
+# coding: utf-8
+
+# In[21]:
+
+
+import sys
+import fix_yahoo_finance as yf
+import pandas as pd
+
+#YYYY-MM-DD
+def data(company,start_date,end_date):
+    data = yf.download(company, start=start_date, end=end_date)
+    data.to_csv("Stock.csv")
+    
+
+if __name__ == "__main__":
+    company = str(sys.argv[1])
+    start_date = str(sys.argv[2])
+    end_date=str(sys.argv[3])
+    data(company,start_date,end_date)
+
